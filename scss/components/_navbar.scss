@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+.navbar {
+	$padding-x: map.get($dimens, 'container-fluid', 'padding-x');
+
+	@include display-flex($align: center, $justify: space-between);
+	width: 100%;
+	height: map.get($dimens, 'navbar', 'height');
+	padding: 0 $padding-x;
+	border: {
+		bottom: 1px solid get-color('dark', 0.1);
+	}
+
+	&-logo {
+		color: get-color('accent');
+	}
+
+	&-menu {
+		@include display-flex($align: center, $justify: end, $gap: 15px);
+
+		&-avatar,
+		&-shopping {
+			$padding-x: map.get($dimens, 'button', 'padding-x');
+			$padding-y: map.get($dimens, 'button', 'padding-y');
+
+			padding: $padding-y $padding-x;
+		}
+
+		&-sign {
+			padding: map.get($dimens, 'button', 'padding-y') 0;
+		}
+	}
+
+	&-search {
+		$padding-x: map.get($dimens, 'input', 'padding-x');
+		$padding-y: map.get($dimens, 'input', 'padding-y');
+
+		@include display-flex($align: center, $gap: 10px);
+		width: 40%;
+		height: fit-content;
+		border: 1px solid get-color('dark', 0.1);
+		border-radius: map.get($dimens, 'base', 'border-radius');
+		padding: $padding-y $padding-x;
+
+		input {
+			display: block;
+			width: 90%;
+			height: fit-content;
+			border: 1px solid transparent;
+			background-color: #ffffff;
+			outline: none;
+			font-family: map.get($fonts, 'family');
+			font-size: map.get($fonts, 'size', 'body-1');
+			line-height: map.get($fonts, 'line', 'body-1');
+		}
+	}
+}

@@ -1,0 +1,73 @@
+@use 'sass:map';
+
+$colors: (
+	'primary': #882825,
+	'accent': #ba4a03,
+	'dark': #1a1b1d,
+	'success': #208e66,
+	'warning': #a58d38,
+	'danger': #a73442,
+);
+
+$themes: map.keys($colors);
+
+$fonts: (
+	'family': 'Lato',
+	'line': (
+		'body-1': 24px,
+		'body-2': 20px,
+		'caption-1': 16px,
+		'caption-2': 14px,
+		'heading-1': 60px,
+		'heading-2': 44px,
+		'heading-3': 36px,
+		'heading-4': 28px,
+	),
+	'size': (
+		'body-1': 16px,
+		'body-2': 14px,
+		'caption-1': 12px,
+		'caption-2': 10px,
+		'heading-1': 50px,
+		'heading-2': 36px,
+		'heading-3': 28px,
+		'heading-4': 20px,
+	),
+);
+
+$dimens: (
+	'base': (
+		'border-radius': 6px,
+		'full-width': 100vw,
+		'full-height': 100vh,
+	),
+	'button': (
+		'padding-x': 0.7rem,
+		'padding-y': 0.5rem,
+	),
+	'container': (
+		'padding-x': 5%,
+	),
+	'container-fluid': (
+		'padding-x': 2%,
+	),
+	'input': (
+		'padding-x': 0.5rem,
+		'padding-y': 0.5rem,
+	),
+	'navbar': (
+		'height': 75px,
+	),
+	'slider': (
+		'banner': (
+			'height': 250px,
+		),
+		'testimoni': (
+			'height': 250px,
+		),
+		'navigation': (
+			'width': 50px,
+			'height': 50px,
+		),
+	),
+);

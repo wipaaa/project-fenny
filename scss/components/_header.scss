@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+.header {
+	@include display-flex($align: center, $justify: space-between);
+	width: 100%;
+	height: fit-content;
+	padding: 0.3rem map.get($dimens, 'container-fluid', 'padding-x');
+	border: 1px solid get-color('dark', 0.1);
+	font-size: map.get($fonts, 'size', 'body-2');
+
+	&-menu {
+		display: flex;
+		gap: 10px;
+	}
+}

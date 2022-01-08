@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+*,
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: map.get($dimens, 'base', 'full-height');
+	font-family: map.get($fonts, 'family');
+	font-size: map.get($fonts, 'size', 'body-1');
+	line-height: map.get($fonts, 'line', 'body-1');
+
+	a {
+		color: get-color('dark');
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	@each $heading in (1, 2, 3, 4) {
+		h#{$heading} {
+			font-size: map.get($fonts, 'size', 'heading-#{$heading}');
+			line-height: map.get($fonts, 'line', 'heading-#{$heading}');
+			margin-bottom: 0.5rem;
+		}
+	}
+}

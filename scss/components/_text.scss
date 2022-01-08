@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@each $theme in $themes {
+	.text-#{$theme} {
+		color: get-color($theme);
+	}
+
+	@each $opacity in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
+		.text-#{$theme}-#{$opacity} {
+			color: get-color($theme, math.div($opacity, 1000));
+		}
+	}
+}

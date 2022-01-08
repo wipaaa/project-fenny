@@ -1,0 +1,17 @@
+{
+	"name": "fenny-ecommerce",
+	"version": "1.0.0",
+	"description": "Project Fenny e-commerce website",
+	"author": {
+		"name": "wipaaa",
+		"email": "ini.dwiii@gmail.com"
+	},
+	"scripts": {
+		"build-dev": "sass -c -s expanded scss/fenny.scss css/fenny.css",
+		"build-dev:watch": "sass -c -w -s expanded scss/fenny.scss css/fenny.css",
+		"build-prod": "sass -c -s compressed scss/fenny.scss css/fenny.css"
+	},
+	"dependencies": {
+		"sass": "^1.46.0"
+	}
+}

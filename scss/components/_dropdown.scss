@@ -1,0 +1,58 @@
+@use 'sass:map';
+
+.dropdown {
+	position: relative;
+	@include display-flex($align: center);
+	width: fit-content;
+	height: fit-content;
+
+	&.active {
+		.dropdown-toggle,
+		button {
+			i.indicator {
+				transform: rotate(180deg);
+			}
+		}
+
+		.dropdown-target {
+			display: block;
+		}
+	}
+
+	&-toggle {
+		$padding-x: map.get($dimens, 'button', 'padding-x');
+		$padding-y: map.get($dimens, 'button', 'padding-y');
+
+		@include display-flex($align: center, $gap: 10px);
+		border: 1px solid transparent;
+		border-radius: map.get($dimens, 'base', 'border-radius');
+		background-color: #ffffff;
+		outline: none;
+		padding: $padding-y $padding-x;
+		font-family: map.get($fonts, 'family');
+		font-size: map.get($fonts, 'size', 'body-1');
+		line-height: map.get($fonts, 'line', 'body-1');
+		cursor: pointer;
+	}
+
+	&-target {
+		position: absolute;
+		top: 115%;
+		display: none;
+		width: fit-content;
+		height: fit-content;
+		padding: 0.2rem 0.4rem;
+		background-color: #ffffff;
+		border: 1px solid get-color('dark', 0.1);
+		border-radius: map.get($dimens, 'base', 'border-radius');
+		z-index: 9;
+
+		&.left {
+			left: 0;
+		}
+
+		&.right {
+			right: 0;
+		}
+	}
+}

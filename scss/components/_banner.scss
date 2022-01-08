@@ -1,0 +1,46 @@
+@use 'sass:map';
+
+.banner {
+	$nav-offset: 3%;
+
+	position: relative;
+	@include display-flex($align: center, $justify: center);
+	width: 100%;
+	height: 350px;
+	background: #ffffff;
+
+	&-container {
+		width: 90%;
+		margin: auto;
+	}
+
+	&-nav-next,
+	&-nav-prev {
+		position: absolute;
+		@include display-flex($align: center, $justify: center);
+		width: map.get($dimens, 'slider', 'navigation', 'width');
+		height: map.get($dimens, 'slider', 'navigation', 'height');
+		background: #ffffff;
+		border: 1px solid get-color('dark', 0.1);
+		border-radius: 50%;
+		outline: none;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	&-nav-next {
+		right: $nav-offset;
+	}
+
+	&-nav-prev {
+		left: $nav-offset;
+	}
+
+	&-slide {
+		@include display-flex($align: center, $justify: center);
+		height: map.get($dimens, 'slider', 'banner', 'height');
+		background: get-color('dark', 0.1);
+		border-radius: map.get($dimens, 'base', 'border-radius');
+		overflow: hidden;
+	}
+}

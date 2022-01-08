@@ -1,0 +1,52 @@
+@use 'sass:map';
+
+.btn {
+	$padding-x: map.get($dimens, 'button', 'padding-x');
+	$padding-y: map.get($dimens, 'button', 'padding-y');
+
+	@include display-flex($align: center, $justify: center, $gap: 10px);
+	padding: $padding-y $padding-x;
+	background: #ffffff;
+	border: 1px solid transparent;
+	border-radius: map.get($dimens, 'base', 'border-radius');
+	outline: none;
+	font-family: map.get($fonts, 'family');
+	font-size: map.get($fonts, 'size', 'body-1');
+	line-height: map.get($fonts, 'line', 'body-1');
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	transition-property: background-color, border-color, color;
+
+	&-dropdown {
+		gap: 30px;
+	}
+
+	span {
+		@include display-flex($align: center, $gap: 10px);
+	}
+
+	@each $theme in $themes {
+		$theme-color: get-color($theme);
+
+		&-#{$theme} {
+			background-color: $theme-color;
+			color: #ffffff;
+
+			&:hover {
+				background-color: get-color($theme, 0.9);
+			}
+		}
+
+		&-outline-#{$theme} {
+			background-color: #ffffff;
+			border-color: $theme-color;
+			color: $theme-color;
+
+			&:hover {
+				background-color: $theme-color;
+				border-color: transparent;
+				color: #ffffff;
+			}
+		}
+	}
+}
